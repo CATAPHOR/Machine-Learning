@@ -40,7 +40,7 @@ Theta2_grad = zeros(size(Theta2));
 %         computed in ex4.m
 %
 
-a2 = sigmoid(Theta1*[ones(m, 1), X]');
+a2 = sigmoid(Theta1*[ones(1, m); X']);
 h = sigmoid(Theta2*[ones(1, m); a2]);
 y1 = eye(num_labels)(:, y);
 
