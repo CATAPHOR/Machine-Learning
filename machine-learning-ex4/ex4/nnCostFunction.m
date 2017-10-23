@@ -40,9 +40,9 @@ Theta2_grad = zeros(size(Theta2));
 %         computed in ex4.m
 %
 
-a2 = sigmoid([ones(m, 1), X]*Theta1');
-h = sigmoid([ones(m, 1), a2]*Theta2');
-y1 = eye(num_labels)(y, :);
+a2 = sigmoid(Theta1*[ones(m, 1), X]');
+h = sigmoid(Theta2*[ones(1, m); a2]);
+y1 = eye(num_labels)(:, y);
 
 J = (1/m) * sum(sum(-y1 .* log(h) - (1 - y1) .* log(1 - h))) + (lambda/(2*m))*sum([Theta1(:, 2:end)(:); Theta2(:, 2:end)(:)].^2);
 
