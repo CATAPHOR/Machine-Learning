@@ -17,6 +17,7 @@ for iter = 1:num_iters
 %       of the cost function (computeCostMulti) and gradient here.
 %
 
+J = (1/(2*m))*sum((X*theta - y).^2);
 theta = theta - alpha * (1/m) * ((X*theta - y)'*X)';
 
 % ============================================================
